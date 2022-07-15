@@ -19,11 +19,23 @@ namespace WebApplication1.Pages.Movie
             _context = context;
         }
 
-        public IList<WebApplication1.Models.Movie> Movie { get;set; }
+        public IList<WebApplication1.Models.Movie> Movie { get; set; }
 
         public async Task OnGetAsync()
         {
-            Movie = await _context.Movie.ToListAsync();
+            IList<WebApplication1.Models.Movie> data = new List<WebApplication1.Models.Movie>()
+            {
+                new WebApplication1.Models.Movie(){ID = 1, Genre = "Male", Price = 1000, ReleaseDate = DateTime.Now, Title = "Hello"},
+                new WebApplication1.Models.Movie(){ID = 1, Genre = "Male", Price = 1000, ReleaseDate = DateTime.Now, Title = "Hello"},
+                new WebApplication1.Models.Movie(){ID = 1, Genre = "Male", Price = 1000, ReleaseDate = DateTime.Now, Title = "Hello"},
+            };
+
+            if (_context != null)
+            {
+                Movie = await _context.Movie.ToListAsync();
+                //Movie = data;
+            }
+
         }
     }
 }

@@ -21,6 +21,7 @@ namespace WebApplication1.Pages.Movie
 
         public IActionResult OnGet()
         {
+            ViewData["xxx"] = "From controller";
             return Page();
         }
 

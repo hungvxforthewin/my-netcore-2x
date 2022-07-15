@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -32,7 +33,7 @@ namespace WebApplication1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            // Add services to the container
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<WebApplication1Context>(options =>
@@ -42,6 +43,8 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
